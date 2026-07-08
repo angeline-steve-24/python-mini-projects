@@ -1,54 +1,128 @@
-# Academic Assignment: Data Science and Analytics
+# 🐍 Python Mini Projects
 
-This repository contains implementation code, conceptual architectures, and descriptive analyses for three distinct engineering and statistical problems.
+Welcome to my **Python Mini Projects** repository!
 
----
-
-## Question 1: Global Banking System Data Infrastructure & Real-Time Fraud Detection Framework
-
-### Theoretical Appraisal
-Global banking networks process millions of events per second across multiple endpoints. Relational data warehouse structures, which rely on nocturnal batch ETL loads, are vulnerable to latency gaps, allowing card cloning or systemic fraud to persist unnoticed. 
-
-#### Suggested Architecture: Hybrid Lakehouse & Streaming
-* **Real-time processing (Kappa Pattern):** Log messages are ingested via **Apache Kafka** and streamed directly to a processing layer (**Apache Flink**).
-* **Distributed Feature Store:** Flink updates and queries rolling customer metrics (e.g., number of locations visited in 15 minutes) inside a stateful cache like **Redis** (managed by **Feast**).
-* **Low-latency ML Inference:** A pre-trained model (e.g., **Isolation Forest**) evaluates transaction vectors in $<50\text{ ms}$.
-* **Compliance Archival:** The raw transactional logs are written to an open table format (e.g., **Apache Iceberg**) for batch analytics and model retraining.
-
-### Python Code
-The implementation is in `q1_fraud_detection.py`. It constructs an Isolation Forest baseline, processes user events with rolling temporal features, and flags anomalies.
+This repository contains a collection of Python mini projects and academic assignments completed as part of my Computer Science coursework. These projects demonstrate practical applications of Python, data analysis, machine learning, and problem-solving techniques.
 
 ---
 
-## Question 2: Strategy for Data Preparation & EDA of a Smart-City IoT Dataset
+## 📌 Repository Overview
 
-### Processing Strategy
-Physical IoT deployments introduce high volatility (missing reports, hardware failures, variable network delays). A structured cleaning framework consists of:
+The projects in this repository cover various domains, including:
 
-1. **Grid Resampling:** Aligning irregular, asynchronous timestamps to fixed bins (e.g., 5-minute bins).
-2. **Outlier Filtering (Median Absolute Deviation):** Standard Z-score methods rely on the mean, which can be distorted by extreme outliers. We compute:
-   $$\text{MAD} = \text{median}(|X_i - \text{median}(X)|)$$
-   and mask values where $|X_i - \text{median}(X)| / (1.4826 \times \text{MAD}) > \text{Threshold}$.
-3. **Data Imputation:** Linear interpolation is applied to small, contiguous missing blocks. For prolonged gaps, temporal/seasonal interpolation is used.
-
-### Python Code
-The implementation is in `q2_iot_cleaning.py`. It generates a noisy, irregular time series, aligns it to a uniform grid, filters out anomalies using rolling MAD, and imputes missing indices.
+- 🤖 Machine Learning
+- 📊 Data Science & Analytics
+- 🧮 Python Programming
+- 📈 Data Processing
+- 🔍 Algorithm Implementation
+- 💻 Academic Assignments
 
 ---
 
-## Question 3: Critique of Statistical Descriptions for Skewed Income Data
+## 📂 Projects
 
-### Critique of Classical Statistics
-Applying standard parametric statistics to highly right-skewed data distributions (such as income, which typically follows a Pareto distribution) introduces significant distortions:
+| No. | Project | Description | Status |
+|:---:|---------|-------------|:------:|
+| 1 | Fraud Detection System | Real-time fraud detection using Isolation Forest for anomaly detection. | ✅ |
+| 2 | IoT Data Cleaning | Cleaning and preprocessing IoT sensor datasets. | ✅ |
+| 3 | Income Critique | Income dataset analysis and data insights. | ✅ |
+| 4 | Student CGPA Calculator | Calculates SGPA and CGPA based on student marks. | ✅ |
 
-1. **Mean Distortion:** The arithmetic mean is heavily influenced by high-income outliers, misrepresenting the average citizen's financial reality.
-2. **Standard Deviation Failure:** SD assumes symmetric bounds. In highly skewed distributions, calculation of intervals like $\mu \pm 2\sigma$ can result in impossible negative values at the lower bound.
+> More Python mini projects will be added regularly.
 
-### Recommended Alternative Framework
-1. **Median ($Q_2$):** Measures central tendency robustly.
-2. **IQR ($Q_3 - Q_1$):** Measures dispersion without being affected by extreme outliers.
-3. **Gini Index:** Standard mathematical model for overall wealth inequality.
-4. **Palma Ratio:** Focuses on the structural ratio of the top 10% income share divided by the bottom 40% income share.
+---
 
-### Python Code
-The implementation is in `q3_income_critique.py`. It compares classical statistics against the robust framework on a simulated Pareto-distributed income population.
+## 🛠 Technologies Used
+
+- Python 3
+- NumPy
+- Pandas
+- Scikit-learn
+- Matplotlib
+- Git
+- GitHub
+
+---
+
+## 📁 Repository Structure
+
+```text
+python-mini-projects/
+│
+├── README.md
+├── q1_fraud_detection.py
+├── q2_iot_cleaning.py
+├── q3_income_critique.py
+├── q4_cgpa_calculator.py
+└── ...
+```
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/angeline-steve-24/python-mini-projects.git
+```
+
+2. Navigate to the project directory
+
+```bash
+cd python-mini-projects
+```
+
+3. Run any Python file
+
+```bash
+python q1_fraud_detection.py
+```
+
+Example:
+
+```bash
+python q4_cgpa_calculator.py
+```
+
+---
+
+## 🎯 Objectives
+
+- Strengthen Python programming skills
+- Explore machine learning concepts
+- Practice data preprocessing and analysis
+- Build practical mini projects
+- Improve problem-solving abilities
+
+---
+
+## 📚 Future Projects
+
+- Customer Segmentation
+- House Price Prediction
+- Weather Data Analysis
+- Student Performance Prediction
+- Sales Forecasting
+- Spam Email Detection
+- Sentiment Analysis
+- Face Mask Detection
+- Handwritten Digit Recognition
+
+---
+
+## 👩‍💻 Author
+
+**Angeline Steve**
+
+Computer Science & Engineering Student
+
+GitHub: https://github.com/angeline-steve-24
+
+---
+
+## ⭐ Support
+
+If you found this repository useful, consider giving it a ⭐ on GitHub.
+
+It motivates me to continue building and sharing more projects.

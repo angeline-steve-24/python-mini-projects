@@ -1,4 +1,4 @@
-# 🐍 Python Mini Projects
+# Python Mini Projects
 
 Welcome to my **Python Mini Projects** repository!
 
